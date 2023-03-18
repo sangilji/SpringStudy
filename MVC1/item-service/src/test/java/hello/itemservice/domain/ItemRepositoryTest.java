@@ -1,13 +1,11 @@
 package hello.itemservice.domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ItemRepositoryTest {
 
@@ -54,7 +52,7 @@ class ItemRepositoryTest {
 
         Item findItem = itemRepository.findById(itemId);
 
-        assertThat(findItem.getName()).isEqualTo(updateParam.getName());
+        assertThat(findItem.getItemName()).isEqualTo(updateParam.getItemName());
         assertThat(findItem.getPrice()).isEqualTo(updateParam.getPrice());
         assertThat(findItem.getQuantity()).isEqualTo(updateParam.getQuantity());
 
