@@ -12,14 +12,11 @@ public class JpaMain {
         transaction.begin();
 
         try {
-            List<Member> resultList = em.createQuery("select m from Member as m", Member.class)
-                    .setFirstResult(5)
-                    .setMaxResults(8)
-                    .getResultList();
+            Member member = new Member();
+            member.setUsername("A");
 
-            for (Member member : resultList) {
-                System.out.println("member.name = " + member.getName());
-            }
+            em.persist(member);
+
             transaction.commit();
         } catch (Exception e) {
             transaction.rollback();
