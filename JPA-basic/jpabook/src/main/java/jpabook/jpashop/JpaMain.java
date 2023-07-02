@@ -1,6 +1,7 @@
 package jpabook.jpashop;
 
 import jpabook.jpashop.domain.Order;
+import jpabook.jpashop.domain.OrderItem;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,8 +16,13 @@ public class JpaMain {
 
         try {
 
-            Order order = em.find(Order.class, 1L);
-            
+            Order order = new Order();
+            em.persist(order);
+
+            OrderItem orderItem = new OrderItem();
+            orderItem.setOrder(order);
+
+            em.persist(orderItem);
 
             transaction.commit();
         } catch (Exception e) {
