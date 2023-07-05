@@ -1,14 +1,11 @@
-package jpabook.jpashop;
-
-import jpabook.jpashop.domain.Item;
-import org.hibernate.annotations.FilterJoinTable;
+package jpabook.jpashop.domain;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Category {
+public class Category extends BaseEntity{
 
     @Id
     @GeneratedValue

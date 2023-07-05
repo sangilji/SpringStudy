@@ -1,11 +1,9 @@
-package jpabook.jpashop;
-
-import jpabook.jpashop.domain.Order;
+package jpabook.jpashop.domain;
 
 import javax.persistence.*;
 
 @Entity
-public class Delivery {
+public class Delivery extends BaseEntity{
 
     @Id
     @GeneratedValue
