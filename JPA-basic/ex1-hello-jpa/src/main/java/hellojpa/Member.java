@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Member {
+public class Member extends BaseEntity{
     @Id
     @GeneratedValue
     @Column(name = "MEMBER_ID")
@@ -22,7 +22,7 @@ public class Member {
     private Locker locker;
 
     @OneToMany(mappedBy = "product")
-    private List<Product> products = new ArrayList<>();
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 
     public Locker getLocker() {
         return locker;

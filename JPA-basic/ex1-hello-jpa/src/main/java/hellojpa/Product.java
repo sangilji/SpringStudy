@@ -11,8 +11,8 @@ public class Product {
 
     private String name;
 
-    @OneToMany(mappedBy = "member")
-    private List<Member> members = new ArrayList<>();
+    @OneToMany(mappedBy = "member",targetEntity = MemberProduct.class)
+    private List<MemberProduct> memberProducts = new ArrayList<>();
     public void setId(Long id) {
         this.id = id;
     }
