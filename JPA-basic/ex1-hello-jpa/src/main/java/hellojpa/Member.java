@@ -17,6 +17,10 @@ public class Member extends BaseEntity{
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    private Period period;
+
+    @Embedded
+    private Address address;
 
     public Long getId() {
         return id;
@@ -40,5 +44,21 @@ public class Member extends BaseEntity{
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public Period getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Period period) {
+        this.period = period;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
