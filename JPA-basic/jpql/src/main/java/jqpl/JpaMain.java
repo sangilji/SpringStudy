@@ -1,9 +1,6 @@
-package hellojpa;
-
-import org.hibernate.Hibernate;
+package jqpl;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class JpaMain {
@@ -15,18 +12,12 @@ public class JpaMain {
         transaction.begin();
 
         try {
-
             Member member = new Member();
-            member.setUsername("kimminsu");
-            member.setAddress(new Address("city", "street", "10"));
-            member.setPeriod(new Period());
+            member.setUsername("member1");
+            member.setAge(10);
             em.persist(member);
 
-            List<Member> result = em.createQuery("select m from Member m where m.username like '%kim%'", Member.class)
-                    .getResultList();
-            for (Member m : result) {
-                System.out.println(m.getUsername());
-            }
+            em.createQuery("select m from Member m where m.id = 10", Member.class).getResultList();
 
             transaction.commit();
         } catch (Exception e) {
