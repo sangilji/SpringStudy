@@ -1,8 +1,10 @@
 package study.querydsl.entity;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -34,16 +36,12 @@ class MemberTest {
         em.persist(member4);
 
         em.flush();
-        em.close();
+        em.clear();
         List<Member> members = em.createQuery("select m from Member m", Member.class)
                 .getResultList();
 
         for (Member member : members) {
             System.out.println("member = " + member);
         }
-
-
-
     }
-
 }
