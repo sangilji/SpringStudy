@@ -17,7 +17,11 @@ public class JpaMain {
             member.setAge(10);
             em.persist(member);
 
-            em.createQuery("select m from Member m where m.id = 10", Member.class).getResultList();
+            em.flush();
+            em.close();
+
+            List<Member> result = em.createQuery("select m from Member m", Member.class)
+                    .getResultList();
 
             transaction.commit();
         } catch (Exception e) {
